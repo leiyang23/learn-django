@@ -22,3 +22,10 @@ def setup(set_prefix=True):
             '/' if settings.FORCE_SCRIPT_NAME is None else settings.FORCE_SCRIPT_NAME
         )
     apps.populate(settings.INSTALLED_APPS)
+
+"""
+note:
+apps 和 settings 是实例化对象
+setup函数有可能会被多个线程同时调用，但是 from django.apps import apps 这个操作中，在apps包中已经完成了对Apps的实例化，
+即使多次引入，都是同一个对象。
+"""
